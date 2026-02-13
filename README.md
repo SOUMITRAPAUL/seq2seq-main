@@ -26,10 +26,12 @@ python3 visualize_attention.py --num_examples 5
 
 ## Overview
 
-The system translates natural language descriptions (docstrings) into functional Python code using:
-1. **Vanilla RNN Seq2Seq** (Baseline) - BLEU-4: 0.0225
-2. **LSTM Seq2Seq** (Improved) - BLEU-4: 0.0309 
-3. **LSTM with Bahdanau Attention** (Best) - BLEU-4: 0.0643
+Here’s a crisp 3-line comparison based on your average BLEU-4 scores:
+
+* **Vanilla RNN**: Baseline performance with BLEU-4 ≈ **0.0314**, struggles with long-term dependencies.
+* **LSTM Seq2Seq**: Improved context handling, BLEU-4 ≈ **0.0345**, slightly better than RNN.
+* **LSTM + Attention**: Best performance, BLEU-4 ≈ **0.0419**, dynamically focuses on relevant tokens for accurate code generation.
+
 
 ## Project Structure
 
