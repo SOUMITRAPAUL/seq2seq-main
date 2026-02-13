@@ -6,7 +6,7 @@ This project implements and compares three sequence-to-sequence models for trans
 
 ```bash
 # Clone and setup
-git clone https://github.com/intense123/seq2seq.git
+git clone https://github.com/SOUMITRAPAUL/seq2seq-main
 cd seq2seq
 pip install -r requirements.txt
 python3 -c "import nltk; nltk.download('punkt')"
@@ -15,7 +15,7 @@ python3 -c "import nltk; nltk.download('punkt')"
 python3 -c "from data.preprocess import prepare_data; prepare_data()"
 
 # Train all models
-python3 train.py --model all --num_epochs 10
+python3 train.py --model all --num_epochs 2
 
 # Evaluate
 python3 evaluate.py --model all
@@ -27,9 +27,9 @@ python3 visualize_attention.py --num_examples 5
 ## Overview
 
 The system translates natural language descriptions (docstrings) into functional Python code using:
-1. **Vanilla RNN Seq2Seq** (Baseline) - BLEU-4: 0.0314
-2. **LSTM Seq2Seq** (Improved) - BLEU-4: 0.0408 (+30%)
-3. **LSTM with Bahdanau Attention** (Best) - BLEU-4: 0.0623 (+98%)
+1. **Vanilla RNN Seq2Seq** (Baseline) - BLEU-4: 0.0225
+2. **LSTM Seq2Seq** (Improved) - BLEU-4: 0.0309 
+3. **LSTM with Bahdanau Attention** (Best) - BLEU-4: 0.0643
 
 ## Project Structure
 
@@ -103,20 +103,20 @@ This will:
 Train all three models:
 
 ```bash
-python3 train.py --model all --num_epochs 20
+python3 train.py --model all --num_epochs 2
 ```
 
 Or train individual models:
 
 ```bash
 # Train only RNN
-python3 train.py --model rnn --num_epochs 20
+python3 train.py --model rnn --num_epochs 2
 
 # Train only LSTM
-python3 train.py --model lstm --num_epochs 20
+python3 train.py --model lstm --num_epochs 2
 
 # Train only Attention
-python3 train.py --model attention --num_epochs 20
+python3 train.py --model attention --num_epochs 2
 ```
 
 **Training Options:**
@@ -126,7 +126,7 @@ python3 train.py --model attention --num_epochs 20
 - `--batch_size`: Batch size (default: 32)
 - `--learning_rate`: Learning rate (default: 0.001)
 - `--teacher_forcing_ratio`: Teacher forcing probability (default: 0.5)
-- `--num_epochs`: Number of training epochs (default: 20)
+- `--num_epochs`: Number of training epochs (default: 2)
 
 ### Step 3: Evaluate Models
 
@@ -280,7 +280,7 @@ python3 train.py --model all --batch_size 16
 
 **Poor Results**:
 ```bash
-python3 train.py --model all --num_epochs 30 --learning_rate 0.0005
+python3 train.py --model all --num_epochs 3 --learning_rate 0.0005
 ```
 
 **Module Not Found Errors**:
@@ -299,10 +299,3 @@ Dataset:
 }
 ```
 
-## License
-
-This project is for educational purposes as part of an academic assignment.
-
-## Contact
-
-For questions or issues, please refer to the course materials or contact the instructor.
